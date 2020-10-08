@@ -106,8 +106,8 @@ resource "aws_route_table_association" "public-c" {
 }
 
 resource "aws_vpc_dhcp_options" "ad_optionset" {
-  domain_name          = aws_directory_service_directory.test.name
-  domain_name_servers  = aws_directory_service_directory.test.dns_ip_addresses
+  domain_name         = aws_directory_service_directory.test.name
+  domain_name_servers = aws_directory_service_directory.test.dns_ip_addresses
 
   tags = {
     Name = "${var.pj-prefix}-dhcp-option-set"

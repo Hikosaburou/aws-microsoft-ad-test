@@ -11,18 +11,18 @@ data aws_ssm_parameter amzn2_ami {
 ### CentOS 7 の最新版AMIを取得する
 data aws_ami centos7_ami {
   most_recent = true
-  owners = [ "aws-marketplace" ]
+  owners      = ["aws-marketplace"]
 
   filter {
-    name = "product-code"
-    values = [ "aw0evgkw8e5c1q413zgy5pjce" ]
+    name   = "product-code"
+    values = ["aw0evgkw8e5c1q413zgy5pjce"]
   }
 }
 
 ### Windowsインスタンスを指定
 data "aws_ami" "windows_ami" {
-  most_recent      = true
-  owners           = ["amazon"]
+  most_recent = true
+  owners      = ["amazon"]
 
   filter {
     name   = "name"
@@ -46,6 +46,7 @@ resource "aws_instance" "controller" {
   key_name                    = aws_key_pair.ad_test.id
   subnet_id                   = aws_subnet.public-a.id
   associate_public_ip_address = true
+  iam_instance_profile = aws_iam_instance_profile.ad_profile.name
 
   vpc_security_group_ids = [
     aws_security_group.ssh_rdp.id

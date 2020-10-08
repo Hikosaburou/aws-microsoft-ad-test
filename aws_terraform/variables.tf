@@ -23,10 +23,10 @@ DESCRIPTION
 
 variable "ad_domain_name" {
   description = "DNS name for AWS Directory Service"
-  type = string
+  type        = string
 }
 
 variable "ad_admin_password" {
   description = "Admin password for AWS Directory Service"
-  type = string
+  type        = string
 }
