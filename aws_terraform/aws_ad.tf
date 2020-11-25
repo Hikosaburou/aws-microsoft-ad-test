@@ -1,8 +1,8 @@
 resource "aws_directory_service_directory" "test" {
   name     = var.ad_domain_name
   password = var.ad_admin_password
-  edition  = "Standard"
-  type     = "MicrosoftAD"
+  size     = "Small"
+  type     = "SimpleAD"
 
   vpc_settings {
     vpc_id     = aws_vpc.main.id
