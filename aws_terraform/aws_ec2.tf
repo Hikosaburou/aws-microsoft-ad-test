@@ -46,7 +46,7 @@ resource "aws_instance" "controller" {
   key_name                    = aws_key_pair.ad_test.id
   subnet_id                   = aws_subnet.public-a.id
   associate_public_ip_address = true
-  iam_instance_profile = aws_iam_instance_profile.ad_profile.name
+  iam_instance_profile        = aws_iam_instance_profile.ad_profile.name
 
   vpc_security_group_ids = [
     aws_security_group.ssh_rdp.id
